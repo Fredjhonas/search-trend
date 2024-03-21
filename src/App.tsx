@@ -18,7 +18,9 @@ function App() {
         >
           Learn React
         </a>
-        <Button variant="outlined" style={{ marginTop: 20 }}>Hello world</Button>
+        <Button variant="outlined" style={{ marginTop: 20 }}>
+          Hello world
+        </Button>
       </header>
     </div>
   );
