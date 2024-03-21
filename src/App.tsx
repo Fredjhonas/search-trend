@@ -1,27 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
-import Button from '@mui/material/Button';
+import SearchBar from './components/SearchBar';
+import { useState } from 'react';
+import TrendGraphic from './components/TrendGraphic';
+import { Typography, Container } from '@mui/material';
+
+const containerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  minHeight: '100vh',
+};
 
 function App() {
+  const [search, setSearch] = useState('');
   return (
     <div className="App">
-      <header className="App-header">
+      <Container sx={containerStyle}>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variant="outlined" style={{ marginTop: 20 }}>
-          Hello world
-        </Button>
-      </header>
+        <Typography variant="h4" component="h4" sx={{ margin: 4 }} color="blue">
+          Google Trends Widget
+        </Typography>
+        <SearchBar search={search} onSearchChange={(search) => setSearch(search)} />
+        {search?.length > 0 && (
+          <Typography variant="h5" color="InfoText" sx={{ marginTop: 4, width: { xs: '80%' } }}>
+            Showing results for: {search}
+          </Typography>
+        )}
+        {search?.length > 0 && <TrendGraphic search={search} />}
+      </Container>
     </div>
   );
 }
