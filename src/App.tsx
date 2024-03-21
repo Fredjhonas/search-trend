@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/images/logo.svg';
+import './styles/App.css';
 import SearchBar from './components/SearchBar';
 import { useState } from 'react';
 import TrendGraphic from './components/TrendGraphic';
